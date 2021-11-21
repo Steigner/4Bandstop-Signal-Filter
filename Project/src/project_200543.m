@@ -17,7 +17,7 @@ fprintf('[INFO] IACS FME BUT @2021\n');
 fprintf('---------------------------------\n');
 
 % read specified audio file from assignment
-[s, Fs] = audioread('200543');
+[s, Fs] = audioread('../audio/200543');
 
 % get signal as row vector
 s = s';
@@ -142,7 +142,7 @@ f4 = 1370;
 
 t = (1:1/Fs:len_seconds);
 cos_out = cos(2 * pi * f1 * t) + cos(2*pi*f2*t) + cos(2*pi*f3*t) + cos(2*pi*f4*t);
-% audiowrite('4cos.wav',cos_out,Fs,'BitsPerSample',16);
+% audiowrite('../audio/4cos.wav',cos_out,Fs,'BitsPerSample',16);
 % sound(cos_out,Fs)
 
 [sgr,f_sgr,t_sgr] = spectrogram(cos_out, N, S,[], Fs);
@@ -198,7 +198,7 @@ s_f_cent = s_filtred - mean(s_filtred);
 s_f_norm = s_f_cent / abs(max(s_filtred));
 
 sound(s_f_norm, Fs)
-% audiowrite('audio/clean_bandstop.wav',s_f_norm, Fs,'BitsPerSample',16);
+audiowrite('../audio/clean_bandstop.wav', s_f_norm, Fs,'BitsPerSample',16);
 
 % [s,f,t] = spectrogram(s,1024,512,[],Fs/2);
 % P = 10 * log10(1 / N * abs(s).^2);
