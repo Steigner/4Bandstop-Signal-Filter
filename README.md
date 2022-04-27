@@ -1,4 +1,4 @@
-# 4Bandstop-Filter
+# 4Bandstop-Signal-Filter
 
 ```javascript
 Programming-Language, Toolbox
